@@ -179,7 +179,7 @@
      To edit: update translations below
 ════════════════════════════════ -->
 <section class="hero">
-  <div class="hero-eyebrow" data-t="hero_eyebrow"></div>
+  <div class="hero-eyebrow" data-t="hero_eyebrow">A call to educators</div>
   <h1 data-t="hero_h1">Your students' brains<br>are <em>outsourcing</em> themselves</h1>
   <p class="hero-sub" data-t="hero_sub">AI tools are quietly eroding young people's capacity to think, reason, and struggle productively. Here's what the research shows — and what teachers can do about it.</p>
   <div class="hero-actions">
@@ -195,10 +195,10 @@
 ════════════════════════════════ -->
 <div class="stat-bar">
   <div class="stat-grid">
-    <div class="stat-card"><div class="stat-num">72%</div><div class="stat-label" data-t="stat1">of Gen Z students admit to using AI to avoid thinking through problems</div></div>
-    <div class="stat-card"><div class="stat-num">3×</div><div class="stat-label" data-t="stat2">faster decline in sustained attention spans observed in heavy AI users (13–17)</div></div>
-    <div class="stat-card"><div class="stat-num">48%</div><div class="stat-label" data-t="stat3">of teachers report students struggle more with open-ended questions than 3 years ago</div></div>
-    <div class="stat-card"><div class="stat-num">↓ 19pts</div><div class="stat-label" data-t="stat4">drop in creative problem-solving scores across multiple national assessments</div></div>
+    <div class="stat-card"><div class="stat-num">67%</div><div class="stat-label" data-t="stat1">of students say AI use for schoolwork will harm their critical thinking skills</div></div>
+    <div class="stat-card"><div class="stat-num">47s</div><div class="stat-label" data-t="stat2">average youth attention span on screens in 2024 — down from 150 seconds in 2004</div></div>
+    <div class="stat-card"><div class="stat-num">70%</div><div class="stat-label" data-t="stat3">of teachers say AI is weakening students' critical thinking and research skills</div></div>
+    <div class="stat-card"><div class="stat-num">57%</div><div class="stat-label" data-t="stat4">of teachers say weekly AI use would decrease students' independent thinking</div></div>
   </div>
 </div>
 
@@ -315,14 +315,14 @@ const translations = {
     logo_before:"Before ", logo_the:"the ", logo_answer:"Answer",
     footer_before:"Before ", footer_the:"the ", footer_answer:"Answer",
     nav_problem:"The problem", nav_activities:"Activities", nav_resources:"Resources", nav_cta:"Take the pledge",
-    hero_eyebrow:"A call to society for our youth",
+    hero_eyebrow:"A call to educators",
     hero_h1:"Your students' brains<br>are <em>outsourcing</em> themselves",
     hero_sub:"AI tools are quietly eroding young people's capacity to think, reason, and struggle productively. Here's what the research shows — and what teachers can do about it.",
     hero_btn1:"Explore classroom activities", hero_btn2:"See the evidence",
-    stat1:"of Gen Z students admit to using AI to avoid thinking through problems",
-    stat2:"faster decline in sustained attention spans observed in heavy AI users (13–17)",
-    stat3:"of teachers report students struggle more with open-ended questions than 3 years ago",
-    stat4:"drop in creative problem-solving scores across multiple national assessments",
+    stat1:"of students say AI use for schoolwork will harm their critical thinking skills — RAND, 2025",
+    stat2:"average youth attention span on screens in 2024, down from 150 seconds in 2004 — Dr. Gloria Mark, UC Irvine",
+    stat3:"of teachers say AI is weakening students's critical thinking and research skills — CDT, 2025",
+    stat4:"of teachers say weekly AI use would decrease students' independent thinking — Gallup, 2025",
     prob_label:"The problem", prob_title:"What AI dependency is doing to young minds",
     prob_desc:"The concern isn't AI itself — it's the way passive use is replacing the mental effort that builds real cognitive capacity.",
     c1_title:"Memory and recall erosion", c1_desc:"When students look up every answer instantly, the retrieval practice that cements long-term memory never happens. Cognitive load is reduced so much that learning itself is bypassed.", c1_tag:"Memory",
@@ -359,14 +359,14 @@ const translations = {
     logo_before:"Avant ", logo_the:"la ", logo_answer:"Réponse",
     footer_before:"Avant ", footer_the:"la ", footer_answer:"Réponse",
     nav_problem:"Le problème", nav_activities:"Activités", nav_resources:"Ressources", nav_cta:"Signer l'engagement",
-    hero_eyebrow:"Un appel à la société pour notre jeunesse",
+    hero_eyebrow:"Un appel aux enseignants",
     hero_h1:"Le cerveau de vos élèves<br><em>délègue</em> sa propre pensée",
     hero_sub:"Les outils d'IA érodent silencieusement la capacité des jeunes à réfléchir, raisonner et persévérer. Voici ce que la recherche révèle — et ce que les enseignants peuvent faire.",
     hero_btn1:"Explorer les activités", hero_btn2:"Voir les données",
-    stat1:"des élèves de la génération Z admettent utiliser l'IA pour éviter de réfléchir",
-    stat2:"déclin plus rapide de l'attention soutenue chez les grands utilisateurs d'IA (13–17 ans)",
-    stat3:"des enseignants constatent que les élèves peinent davantage avec les questions ouvertes",
-    stat4:"de baisse dans les scores de résolution créative de problèmes aux évaluations nationales",
+    stat1:"des élèves estiment que l'IA nuit à leur pensée critique pour les travaux scolaires — RAND, 2025",
+    stat2:"durée moyenne d'attention des jeunes sur écran en 2024, contre 150 secondes en 2004 — Dr. Gloria Mark",
+    stat3:"des enseignants disent que l'IA affaiblit la pensée critique et les compétences de recherche — CDT, 2025",
+    stat4:"des enseignants estiment que l'IA diminuerait la pensée indépendante des élèves — Gallup, 2025",
     prob_label:"Le problème", prob_title:"Ce que la dépendance à l'IA fait aux jeunes esprits",
     prob_desc:"Le problème n'est pas l'IA en soi — c'est la façon dont l'utilisation passive remplace l'effort mental qui forge de vraies capacités cognitives.",
     c1_title:"Érosion de la mémoire", c1_desc:"Quand les élèves trouvent chaque réponse instantanément, la pratique de récupération qui ancre la mémoire à long terme n'a jamais lieu. La charge cognitive est si réduite que l'apprentissage lui-même est contourné.", c1_tag:"Mémoire",
@@ -443,7 +443,7 @@ function scrollToSection(id) {
    actual Formspree form ID.
    Get it free at formspree.io
 ════════════════════════════════════════ */
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwvjnzrq";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID_HERE";
 
 async function handlePledge() {
   const name  = document.getElementById('pledgeName').value.trim();
