@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Citations & Sources — Before The Answer</title>
+  <meta name="description" content="Research sources and citations behind the Before The Answer awareness initiative on youth cognitive decline and AI." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #1D9E75; --green-dark: #0F6E56; --green-light: #E1F5EE;
+      --text: #1a1a1a; --text-muted: #6b6b6b; --border: #e0e0e0;
+      --bg: #ffffff; --bg-secondary: #f7f7f5; --radius: 8px; --radius-lg: 12px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --text: #f0f0ee; --text-muted: #a0a09a; --border: #2e2e2c; --bg: #1a1a18; --bg-secondary: #222220; }
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+
+    /* NAV */
+    .site-nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+    .nav-logo { font-size: 18px; font-weight: 600; text-decoration: none; color: var(--text); }
+    .nav-logo .the { color: var(--green); font-style: italic; }
+    .nav-back { font-size: 14px; color: var(--text-muted); text-decoration: none; }
+    .nav-back:hover { color: var(--text); }
+
+    /* HERO */
+    .page-hero { padding: 4rem 2rem 3rem; max-width: 760px; margin: 0 auto; }
+    .page-eyebrow { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-dark); background: var(--green-light); padding: 5px 14px; border-radius: 20px; margin-bottom: 1.25rem; }
+    .page-hero h1 { font-size: 36px; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 1rem; }
+    .page-hero p { font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 600px; }
+
+    /* NOTICE BOX */
+    .notice-box { max-width: 760px; margin: 0 auto 3rem; padding: 0 2rem; }
+    .notice-inner { background: #FFF8E1; border: 1px solid #FFD54F; border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; }
+    .notice-inner p { font-size: 14px; color: #5D4037; line-height: 1.6; }
+    .notice-inner strong { color: #3E2723; }
+
+    /* STAT UPDATE BOX */
+    .stat-update { max-width: 760px; margin: 0 auto 3rem; padding: 0 2rem; }
+    .stat-update-inner { background: var(--green-light); border-radius: var(--radius-lg); padding: 1.5rem; }
+    .stat-update-inner h2 { font-size: 18px; font-weight: 600; margin-bottom: 1rem; color: var(--green-dark); }
+    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 560px) { .stat-row { grid-template-columns: 1fr; } }
+    .stat-item { background: var(--bg); border-radius: var(--radius); padding: 1rem; border: 0.5px solid var(--border); }
+    .stat-item .num { font-size: 28px; font-weight: 700; color: var(--green); letter-spacing: -0.5px; }
+    .stat-item .label { font-size: 13px; color: var(--text-muted); margin-top: 4px; line-height: 1.4; }
+    .stat-item .source { font-size: 11px; color: var(--green-dark); margin-top: 8px; font-weight: 500; }
+
+    /* CITATIONS */
+    .citations-wrap { max-width: 760px; margin: 0 auto; padding: 0 2rem 4rem; }
+    .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 1.5rem; }
+    .citation-group { margin-bottom: 3rem; }
+    .citation-group h2 { font-size: 20px; font-weight: 600; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 0.5px solid var(--border); }
+    .citation-card { background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 1.25rem; margin-bottom: 12px; border: 0.5px solid var(--border); }
+    .citation-card .cite-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .citation-card .cite-authors { font-size: 13px; color: var(--text-muted); margin-bottom: 6px; }
+    .citation-card .cite-finding { font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 10px; padding: 10px 12px; background: var(--bg); border-left: 3px solid var(--green); border-radius: 0 var(--radius) var(--radius) 0; }
+    .cite-meta { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .cite-tag { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: var(--green-light); color: var(--green-dark); }
+    .cite-link { font-size: 12px; color: var(--green); text-decoration: none; }
+    .cite-link:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    .site-footer { padding: 1.5rem 2rem; border-top: 0.5px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .footer-logo { font-size: 15px; font-weight: 600; }
+    .footer-logo .the { color: var(--green); font-style: italic; }
+    .footer-copy { font-size: 13px; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="index.html">Before <span class="the">the</span> Answer</a>
+  <a class="nav-back" href="index.html">← Back to main site</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-eyebrow">Transparency</div>
+  <h1>Citations & Sources</h1>
+  <p>Every claim on this site is grounded in published research. Below you'll find the studies, surveys, and institutional reports that support our statistics and concern areas — along with links to read the original sources yourself.</p>
+</div>
+
+<!-- UPDATED STATS -->
+<div class="stat-update">
+  <div class="stat-update-inner">
+    <h2>Our updated headline statistics</h2>
+    <div class="stat-row">
+      <div class="stat-item">
+        <div class="num">67%</div>
+        <div class="label">of middle and high school students say AI use for schoolwork will harm their critical thinking skills</div>
+        <div class="source">RAND Corporation, December 2025</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">70%</div>
+        <div class="label">of teachers worry that AI weakens students' critical thinking and research skills</div>
+        <div class="source">Center for Democracy & Technology, 2025</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">57%</div>
+        <div class="label">of teachers say weekly AI use would decrease students' independent thinking</div>
+        <div class="source">Gallup / The 74, 2025</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">47s</div>
+        <div class="label">average human attention span on a digital device in 2024 — down from 150 seconds in 2004</div>
+        <div class="source">Dr. Gloria Mark, UC Irvine, 2023</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CITATIONS -->
+<div class="citations-wrap">
+  <div class="section-label">Research by category</div>
+
+  <!-- CRITICAL THINKING -->
+  <div class="citation-group">
+    <h2>Critical thinking & cognitive offloading</h2>
+
+    <div class="citation-card">
+      <div class="cite-title">More Students Use AI for Homework, and More Believe It Harms Critical Thinking</div>
+      <div class="cite-authors">Schwartz, H.L. & Diliberti, M.K. — RAND Corporation (March 2026)</div>
+      <div class="cite-finding">As of December 2025, 67% of students endorsed the statement "The more students use AI for their schoolwork, the more it will harm their critical thinking skills" — up more than 10 percentage points from ten months earlier. Survey of 1,214 American youth.</div>
+      <div class="cite-meta">
+        <span class="cite-tag">Critical thinking</span>
+        <span class="cite-tag">Survey</span>
+        <a class="cite-link" href="https://www.rand.org/pubs/research_reports/RRA4742-1.html" target="_blank">Read the report →</a>
+      </div>
+    </div>
+
+    <div class="citation-card">
+      <div class="cite-title">Rising Use of AI in Schools Comes With Big Downsides for Students</div>
+      <div class="cite-authors">Center for Democracy and Technology (2025)</div>
+      <div class="cite-finding">70% of teachers worry that AI weakens critical thinking and research skills. 85% of teachers and 86% of students used AI in the 2024–25 school year. Half of students agree that using AI in class makes them feel less connected to their teachers.</div>
+      <div class="cite-meta">
+        <span class="cite-tag">Critical thinking</span>
+        <span class="cite-tag">Teacher survey</span>
+        <a class="cite-link" href="https://www.edweek.org/technology/rising-use-of-ai-in-schools-comes-with-big-downsides-for-students/2025/10" target="_blank">Read the article →</a>
+      </div>
+    </div>
+
+    <div class="citation-card">
+      <div class="cite-title">Evaluating the Impact of AI on Critical Thinking Skills Among Higher Education Students</div>
+      <div class="cite-authors">Frontiers in Education (2025)</div>
+      <div class="cite-finding">Students who rely heavily on AI demonstrate substantial declines in analytical reasoning capabilities. Overuse of AI creates "cognitive offloading" — students become less able to analyse information independently, formulate logical arguments, and make reasoned decisions. Younger students are particularly susceptible.</div>
+      <div class="cite-meta">
+        <span class="cite-tag">Peer-reviewed</span>
+        <span class="cite-tag">Cognitive offloading</span>
+        <a class="cite-link" href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2025.1719625/full" target="_blank">Read the study →</a>
+      </div>
+    </div>
+
+    <div class="citation-card">
+      <div class="cite-title">How Gen Z Uses Gen AI — and Why It Worries Them</div>
+      <div class="cite-authors">Harvard Business Review (January 2026)</div>
+      <div class="cite-finding">MIT Media Lab study of 54 undergraduates found that writing with AI induced "cognitive debt" — EEG scans showed decreased brain activity, and most students who used AI were later unable to recall a sentence from what they'd written. 79% of young adults expressed concern that AI makes people lazier; 62% worried it makes people less smart.</div>
+      <div class="cite-meta">
+        <span class="cite-tag">Cognitive debt</span>
+        <span class="cite-tag">MIT research</span>
+        <a class="cite-link" href="https://hbr.org/2026/01/how-gen-z-uses-gen-ai-and-why-it-worries-them" target="_blank">Read the article →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ATTENTION SPANS -->
+  <div class="citation-group">
+    <h2>Attention spans & focus</h2>
+
+    <div class="citation-card">
+      <div class="cite-title">Attention Span Research — Digital Screen Focus Duration</div>
+      <div class="cite-authors">Dr. Gloria Mark, University of California Irvine (2023)</div>
+      <div class="cite-finding">The average attention span on a digital device was approximately 150 seconds in 2004. By 2012 it had dropped to 75 seconds. By 2024, research estimates it has reached a low of approximately 47 seconds — a 68% decline over two decades.</div>
+      <div class="cite-meta">
+        <span class="cite-tag">Attention span</span>
+        <span class="cite-tag">Longitudinal research</span>
+        <a class="cite-link" href="https://sgu.ac.id/the-decline-of-attention-span-in-the-digital-era/" target="_blank">Read the analysis →</a>
+      </div>
+    </div>
+
+    <div class="citation-card">
+      <div class="cite-title">Social Media Use Linked to Declining Focus and Emotional Strain in Youth</div>
+      <div class="cite-authors">Nanyang Technological University Singapore & Research Network (July 2025)</div>
+      <div class="cite-finding">Survey of 583 young people aged 13–25 across Singapore and Australia found that 68% reported difficulty focusing, with many struggling to complete schoolwork or engage with content lasting more than a minute. Prolonged social media use associated with emotional fatigue and compulsive behaviors.</div>
+      <div class="cite-meta">
+        <span class="cite-tag">Attention span</span>
+        <span class="cite-tag">Youth survey</span>
+        <a class="cite-link" href="https://www.news-medical.net/news/20250718/Social-media-use-linked-to-declining-focus-and-emotional-strain-in-youth.aspx" target="_blank">Read the study →</a>
+      </div>
+    </div>
+
+    <div class="citation-card">
+      <div class="cite-title">"Screen Time" to "AI Time": Cognitive, Emotional, and Behavioral Outcomes in Children and Adolescents</div>
+      <div class="cite-authors">PMC / National Institutes of Health (2024)</div>
+      <div class="cite-finding">Peer-reviewed analysis calling for urgent adaptation of public health surveillance to address how AI use — not just screen time — is undermining the cognitive, emotional, and social development of today's youth.</div>
+      <div class="cite-meta">
+        <span class="cite-tag">Peer-reviewed</span>
+        <span class="cite-tag">Child development</span>
+        <a class="cite-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12893840/" target="_blank">Read the study →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEACHER PERSPECTIVES -->
+  <div class="citation-group">
+    <h2>Teacher perspectives & classroom impact</h2>
+
+    <div class="citation-card">
+      <div class="cite-title">Survey: 60% of Teachers Used AI This Year</div>
+      <div class="cite-authors">Gallup / The 74 (July 2025)</div>
+      <div class="cite-finding">57% of teachers said weekly AI use by students would decrease their independent thinking. 52% said it would decrease critical thinking. Nearly half said it would decrease student persistence in solving problems, ability to build meaningful relationships, and resilience.</div>
+      <div class="cite-meta">
+        <span class="cite-tag">Teacher survey</span>
+        <span class="cite-tag">Gallup</span>
+        <a class="cite-link" href="https://www.the74million.org/article/survey-60-of-teachers-used-ai-this-year-and-saved-up-to-6-hours-of-work-a-week/" target="_blank">Read the article →</a>
+      </div>
+    </div>
+
+    <div class="citation-card">
+      <div class="cite-title">Over Half of Teachers Say AI Is Harming Students' Critical Thinking</div>
+      <div class="cite-authors">NPR / Ipsos Poll — K-12 Dive (2026)</div>
+      <div class="cite-finding">NPR/Ipsos survey of 545 K-12 teachers found that over half believe AI is actively harming students' ability to think critically — one of the most direct teacher assessments on record.</div>
+      <div class="cite-meta">
+        <span class="cite-tag">Teacher survey</span>
+        <span class="cite-tag">NPR/Ipsos</span>
+        <a class="cite-link" href="https://www.k12dive.com/news/over-half-of-teachers-say-ai-is-harming-students-critical-thinking/822296/" target="_blank">Read the article →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GEN Z SELF-AWARENESS -->
+  <div class="citation-group">
+    <h2>Gen Z's own concerns about AI</h2>
+
+    <div class="citation-card">
+      <div class="cite-title">How Gen Z Is Using AI</div>
+      <div class="cite-authors">Harvard Business School Publishing (February 2026)</div>
+      <div class="cite-finding">79% of young adults expressed concern that AI makes people lazier. 62% worried it makes them less smart. Gen Z specifically worries that AI will displace three important practices: learning by doing, thinking critically, and learning from other people.</div>
+      <div class="cite-meta">
+        <span class="cite-tag">Gen Z survey</span>
+        <span class="cite-tag">Harvard</span>
+        <a class="cite-link" href="https://hbsp.harvard.edu/inspiring-minds/how-gen-z-is-using-ai" target="_blank">Read the article →</a>
+      </div>
+    </div>
+
+    <div class="citation-card">
+      <div class="cite-title">Gen Z's AI Adoption Steady, but Skepticism Climbs</div>
+      <div class="cite-authors">Gallup (April 2026)</div>
+      <div class="cite-finding">8 in 10 Gen Zers say it is "very" or "somewhat" likely that using AI tools will make it more difficult for them to learn in the future. Gen Z is not convinced that AI enhances creativity or critical thinking, and the majority believe it may come at a cost to learning.</div>
+      <div class="cite-meta">
+        <span class="cite-tag">Gen Z survey</span>
+        <span class="cite-tag">Gallup</span>
+        <a class="cite-link" href="https://news.gallup.com/poll/708224/gen-adoption-steady-skepticism-climbs.aspx" target="_blank">Read the report →</a>
+      </div>
+    </div>
+
+    <div class="citation-card">
+      <div class="cite-title">Gen Z Is Using AI — But Reports Gaps in School and Workplace Support</div>
+      <div class="cite-authors">Walton Family Foundation / Gallup (April 2025)</div>
+      <div class="cite-finding">Nearly half (49%) of Gen Z are concerned that AI will harm their ability to think carefully about information. 47% use generative AI weekly. 41% feel anxious about the technology.</div>
+      <div class="cite-meta">
+        <span class="cite-tag">Gen Z survey</span>
+        <span class="cite-tag">Walton Foundation</span>
+        <a class="cite-link" href="https://www.waltonfamilyfoundation.org/about-us/newsroom/gen-z-is-using-ai-but-reports-gaps-in-school-and-workplace-support" target="_blank">Read the report →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- METHODOLOGY NOTE -->
+  <div style="background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 1.5rem; border: 0.5px solid var(--border); margin-top: 1rem;">
+    <div style="font-size: 13px; font-weight: 600; color: var(--green-dark); margin-bottom: 8px;">About our research standards</div>
+    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">We prioritise peer-reviewed studies, major institutional surveys (Gallup, RAND, Harvard, NIH), and direct reporting from established education publications. Where research is emerging or contested, we aim to represent that complexity rather than overstate certainty. This page is updated as new research becomes available. Last updated: June 2026.</p>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">Before <span class="the">the</span> Answer</div>
+  <div class="footer-copy">A grassroots educator initiative · Not affiliated with any government body or vendor</div>
+</footer>
+
+</body>
+</html>
